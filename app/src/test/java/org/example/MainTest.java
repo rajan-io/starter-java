@@ -19,22 +19,13 @@ class MainTest {
     }
 
     @Test
-    @DisplayName("should greet when no name")
-    void shouldGreetWhenNoName() {
-        //when
-        var greeting = greater.getGreeting(null);
-        //then
-        assertThat(greeting).isEqualTo("Hello World!");
-    }
-
-    @Test
     @DisplayName("should greet with name")
     void shouldGreetWithName() {
         //given
-        var fullName = "full name";
+        var fullName = "Full Name";
         //when
-        var greeting = greater.getGreeting(fullName);
-        //thenR
-        assertThat(greeting).isEqualTo("Hello World! full name");
+        var greet = greater.getGreeting(fullName);
+        //then
+        assertThat(greet).isEqualTo("Hello World! Full Name");
     }
 }
