@@ -13,7 +13,7 @@ public class LoggerRateLimiter {
     private ConcurrentMap<String, Integer> oldMap;
     private ConcurrentMap<String, Integer> curMap;
     private AtomicInteger newTime;
-    private final ReadWriteLock lock = new ReentrantReadWriteLock();
+    private final ReentrantLock lock = new ReentrantLock();
 
 
     public LoggerRateLimiter() {
@@ -24,23 +24,23 @@ public class LoggerRateLimiter {
 
     public boolean shouldPrintMessage(int timestamp, String message) {
         if(timestamp >= newTime.get() + 20) { // cleanup both
-            lock.writeLock().lock();
+            lock.lock();
             try {
                 oldMap = new ConcurrentHashMap<>();
                 curMap = new ConcurrentHashMap<>();
                 newTime.set(timestamp);
             }finally {
-                lock.writeLock().unlock();
+                lock.unlock();
             }
 
         } else if (timestamp >= newTime.get() + 10) { //crete new bucket and swap old
-            lock.writeLock().lock();
+            lock.lock();
             try {
                 oldMap = curMap;
                 curMap = new ConcurrentHashMap<>();
                 newTime.set(timestamp);
             }finally {
-                lock.writeLock().unlock();
+                lock.unlock();
             }
         }
 
