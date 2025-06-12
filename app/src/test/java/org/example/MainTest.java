@@ -17,8 +17,8 @@ class MainTest {
     }
 
     @Test
-    @DisplayName("should be testSetup ready")
-    void shouldBeTestSetupReady() {
+    @DisplayName("should be setup ready")
+    void shouldBeSetupReady() {
         //given
 
         //when
