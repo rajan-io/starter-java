@@ -3,29 +3,20 @@
  */
 package org.example;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 
 class MainTest {
-
-    private Main greater;
-
-    @BeforeEach
-    void setUp() {
-        greater = new Main();
-    }
-
     @Test
-    @DisplayName("should greet with name")
-    void shouldGreetWithName() {
+    @DisplayName("should greet when name is not empty")
+    void shouldGreetWhenNameIsNotEmpty() {
         //given
-        var fullName = "Full Name";
+
         //when
-        var greet = greater.getGreeting(fullName);
+
         //then
-        assertThat(greet).isEqualTo("Hello World! Full Name");
+        fail("Not implemented");
     }
 }

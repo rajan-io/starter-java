@@ -3,16 +3,14 @@
  */
 package org.example;
 
-import java.util.Optional;
-
 public class Main {
-    public String getGreeting(String name) {
-        return Optional.ofNullable(name)
-                .map((s) -> "Hello World! " + s)
-                .orElse("Hello World!");
-    }
+
 
     public static void main(String[] args) {
-        System.out.println(new Main().getGreeting("name"));
+        System.out.println("main");
+    }
+
+    public String greet(String name) {
+        return "Hi! %s".formatted(name);
     }
 }
