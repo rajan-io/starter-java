@@ -9,17 +9,12 @@ import static org.assertj.core.api.Assertions.fail;
 
 class MainTest {
 
-    private Main main;
-
-    @BeforeEach
-    void setUp() {
-        main = new Main();
-    }
 
     @Test
     @DisplayName("should be setup ready")
     void shouldBeSetupReady() {
         //given
+        var main = new Main();
 
         //when
         var testSetup = true;
